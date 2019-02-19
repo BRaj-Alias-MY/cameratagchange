@@ -1,0 +1,430 @@
+login css
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {}
+
+.cursor {
+  cursor: pointer;
+}
+
+.example-container {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 50%;
+}
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: left;
+  justify-content: left;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+#footer {
+
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background: #ebebeb;
+  float: left;
+  color: black;
+  position: fixed;
+  padding:10px;
+
+}
+
+.app-toolbar {
+  position: sticky;
+  position: -webkit-sticky;
+  /* For macOS/iOS Safari */
+  top: 0;
+  /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+  /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.mat-elevation-z6 {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0
+rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.footer-span {
+  padding-top: 10px;
+
+}
+
+.card {
+  width: 98%;
+  height: 500px;
+  margin: 10px;
+
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.tag-line{
+  margin-left:20px;
+}
+.iconsize{
+  margin-top: -1px;
+  font-size: 17px;
+}
+.menu {
+  display:inline-block;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.mat-tab-label{
+  width:50% !important ;
+  background-color: #ff9800;
+}
+
+  .app-toolbar{
+    background:#563d7c;color:
+  }
+  .self-padding{
+    margin-top:10px;
+  }
+  body {
+    background:#fbfafa !important;
+  }
+  .mat-card
+  {
+    padding:0px !important;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 1.4375em 0 !important;
+}
+
+.mat-tab-body.mat-tab-body-active{
+  padding-bottom:20px !important;
+}
+@media all and (max-width:780px) {
+  .left-menu {
+    display:none;
+  }
+}
+
+----------------------------------------
+login html: 
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+        <a class="navbar-brand" href="#">InterviewBuddy</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div style="height:100px;">
+
+  </div>
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        </div>
+
+          <div class="col-md-4 self-padding">
+              <mat-card style="padding-bottom:10px;">
+
+
+
+                        <div>
+                            <mat-tab-group>
+
+                                <mat-tab label="Login">
+                                    <br/>
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="group">
+                                         <mat-form-field class="example-full-width">
+                                            <br>
+                                            <i class="material-icons prefix">account_circle</i>
+                                          <input matInput placeholder="Email Address" id="login-username" type="text" name="loginUsername" [(ngModel)]='user.email' required data-msg="Please enter your username">
+                                        </mat-form-field>
+                                        </div>
+                                         </div>
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="group">
+                                           <mat-form-field class="example-full-width">
+                                              <br>
+                                              <i class="material-icons">
+                                                  lock
+                                                  </i>
+                                            <input matInput placeholder="Password" type="password" [(ngModel)]='user.password' name="loginPassword" required data-msg="Please enter your password">
+                                        </mat-form-field>
+                                        </div>
+                                      </div>
+
+                                     <div style="width:100%;text-align:center">
+                                        <div class="group">
+                                        <button mat-raised-button  (click)="login()" class="btn btn-info col-sm-12">Login</button>
+                                      </div>
+                                     </div>
+
+                                      </div>
+
+                                </mat-tab>
+                                <mat-tab label="Register">
+
+                                    <div class="col-sm-12 col-xs-12">
+
+                                        <form class="example-form"  [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                                            <div class="col-sm-6 col-xs-6">
+                                                <div class="group">
+                                            <mat-form-field class="example-full-width">    <br>
+                                              <mat-icon>accessibility</mat-icon>
+                                            <input matInput placeholder="  First Name" formControlName="fname">
+                                          </mat-form-field>
+                                          </div>
+                                          </div>
+                                          <div class="col-sm-6 col-xs-6">
+                                              <div class="group">
+                                            <mat-form-field class="example-full-width">
+                                              <br>
+                                                <i class="material-icons">
+                                                    supervised_user_circle
+                                                    </i>
+                                            <input matInput placeholder="Middle Name" formControlName="mname" >
+                                          </mat-form-field>
+                                          </div>
+                                          </div>
+                                          <div class="col-sm-6 col-xs-6">
+                                           <mat-form-field class="example-full-width">
+                                              <br>
+                                              <i class="material-icons">
+                                                  supervisor_account
+                                                  </i>
+                                            <input matInput placeholder="Last Name" formControlName="lname">
+                                          </mat-form-field>
+                                          </div>
+                                          <div class="col-sm-6 col-xs-6">
+
+                                           <mat-form-field class="example-full-width">
+                                              <br>
+                                              <i class="material-icons">
+                                                  email
+                                                  </i>
+                                            <input matInput placeholder="email" formControlName="email">
+                                          </mat-form-field>
+                                          </div>
+                                          <div class="col-sm-6 col-xs-6">
+
+                                          <mat-form-field class="example-full-width">
+                                              <br>
+                                              <i class="material-icons">
+                                                  perm_phone_msg
+                                                  </i>
+                                              <input matInput placeholder="Phone" formControlName="phone" maxlength="10" pattern="[789][0-9]{9}">
+                                            </mat-form-field>
+                                            </div>
+                                           <!--<mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Gender" >
+                                              </mat-form-field>-->
+
+                                                     <div class="col-sm-6 col-xs-6">
+
+                                              <mat-form-field class="example-full-width">    <br>
+                                                  <i class="material-icons">
+                                                      lock
+                                                      </i>
+                                                  <input matInput placeholder="Password" formControlName="password" type = "password">
+                                                </mat-form-field>
+                                                     </div>
+
+                                                     <div class="col-sm-12 col-xs-12">
+
+                                                                                                      <mat-form-field class="example-full-width">
+                                                                                                        <mat-select placeholder="Gender" formControlName="gender"  required>
+                                                                                                           <mat-option  value="male">Male </mat-option>
+                                                                                                           <mat-option  value="female">Female</mat-option>
+                                                                                                           <mat-option value="others">Other</mat-option>
+                                                                                                              </mat-select>
+                                                                                                             </mat-form-field>
+                                                                                                              </div>
+                                                <div style="width:100%;text-align:center">
+                                                    <button mat-raised-button  class="btn btn-info col-sm-12">Register</button>
+                                                 </div>
+
+                                              </form>
+
+                                      </div>
+
+                                </mat-tab>
+                                  <div>
+                                      <div class="panel-footer">  <a routerLink="/forget-password" tabindex="5" class="forgot-password">Forgot Password?</a></div>
+                                  </div>
+                              </mat-tab-group>
+                        </div>
+
+
+
+                </mat-card>
+             </div>
+
+
+          <div class="col-md-4">
+
+              </div>
+</div>
+
+  <!--footer-->
+  <div color="primary" id="footer">
+    Copyright @ InterviewBuddy.in
+  </div>
+  <!--footer-->
+==========================================
+style.css 
+
+
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+body{
+ /* background-image: url(assets/images/bgg.jpg); */
+ background-color: #fff;
+ /* background-repeat: no-repeat;
+ height: 1080px;
+ width: 100%; */
+ font-family: 'Lato', sans-serif;
+ overflow-x: hidden !important;
+}
+.mat-accordion .mat-expansion-panel{
+  border-radius: 0px !important;
+  background: #F2F2F2;
+}
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
+  font-size:13px;
+  color:rgba(83, 80, 80, 0.87);
+}
+.mat-expansion-panel-body{
+  color:rgba(107, 104, 104, 0.87);
+  font-size:12px ;
+}
+
+.mat-expansion-indicator::after {
+  border-style: solid;
+  border-width: 0px 1px 1px 0px !important;
+  content: '';
+  display: inline-block;
+  padding: 2px !important;
+  transform: rotate(45deg);
+  vertical-align: middle;
+}
+
+
+  .mat-expansion-panel-header {
+    height: 43px !important;
+    font-weight: 400;
+  }
+.panel-content{
+  padding-left:5px;
+}
+.menu-ul {
+  margin: 0px;
+  list-style: none;
+  padding: 0px;
+}
+/*scrolling */
+  #menuscroll {
+    height: 100%;
+    background: none;
+    overflow-y: scroll;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0px;
+    font: 100%/1.8 serif;
+
+
+  }
+  .mat-tab-label {
+    background-color: #4dd0e1;
+    color:white !important;
+
+
+  }
+  .mat-tab-label-active {
+    background-color: #b388ff;
+    color:white !important;
+    opacity: active !important;
+
+}
+
+
+.mat-tab-body.mat-tab-body-active{
+  padding-bottom:20px !important;
+}
+
+
+  #menuscroll::-webkit-scrollbar {
+      width: 0.25em;
+  }
+
+  #menuscroll::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(107, 103, 103, 0.3);
+  }
+
+  #menuscroll::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+
+  /*scrolling */
+  .example-container {
+    border:none !important;
+  }
+  .mat-tab-label{
+    width:50% !important ;
+    height:55px !important;
+  }
+
+  .ng-select-pad{
+    padding:10px;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 1.4375em 0 !important;
+  }
