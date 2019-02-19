@@ -1,0 +1,97 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+declare var $: any;
+declare var CameraTag: any;
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  @Input() value = 55;
+  @Output() countChange = new EventEmitter<number>();
+
+  setnew() {
+    alert('test');
+    this.countChange.emit(this.value);
+  }
+  title = 'camtag';
+
+  ngOnInit() {
+    $('#wait').hide();
+    $('.w3-light-grey').hide();
+    CameraTag.setup();
+    $(document).ready(function () {
+
+
+      CameraTag.observe('DemoCamera', 'initialized', function () {
+
+        // $('.cameratag_record').trigger('click');
+
+      });
+
+      CameraTag.observe('DemoCamera', 'uploadProgress', function () {
+
+        $('.w3-light-grey').show();
+        let data = $('.cameratag_upload_status').html();
+        $('.w3-grey').css('width', data);
+
+
+      });
+
+      CameraTag.observe('DemoCamera', 'publishing', function () {
+        //  let data =  .uploadStatus();
+        //$('#DemoCamera').hide();
+        $('#wait').show();
+
+      });
+
+      CameraTag.observe('DemoCamera', 'published', function () {
+        //  let data =  .uploadStatus();
+        // $('#DemoCamera').show();
+        $('#wait').hide();
+        // CameraTag.setup();
+        CameraTag.cameras["DemoCamera"].reset();
+        //  $('.cameratag_record').trigger('click');
+      });
+
+
+      CameraTag.observe('DemoCamera', 'recordingStarted', function () {
+        let time = $('.cameratag_record_timer_prompt').html();
+        time = time.replace('(', '');
+        time = time.replace(')', '');
+      });
+
+
+      setInterval(function () {
+        let time = $('.cameratag_record_timer_prompt').html();
+        time = time.replace('(', '');
+        time = time.replace(')', '');
+        $('.time').html(time);
+      }, 500);
+
+
+    });
+
+
+  }
+}
+=========================
+<div style="width:500px;">
+
+  <camera id='DemoCamera' [data-maxlength]='value' data-app-id='a-3b53a840-156a-0137-869a-06a97369f4a4'></camera>
+
+  <div class="w3-light-grey">
+    <div class="w3-grey" style="height:24px;width:0%"></div>
+  </div>
+
+</div>
+
+
+
+<div id="#wait">
+  Please wait for sometime
+</div>
+
+<h2 class="time"></h2>
+<button (click)="setnew()">Click Here</button>
